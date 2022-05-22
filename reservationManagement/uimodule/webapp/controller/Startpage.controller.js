@@ -15,16 +15,16 @@ sap.ui.define([
       var oCurrentYear = new Date().getFullYear(); //2022
       var oCurrentMonth = new Date().getMonth(); //4
       var oCurrentDay = new Date().getDate(); //14
-      
 
-      for(var key in oModel.jsonData){
-        if(oModel.jsonData[key].current == true){
+
+      for (var key in oModel.jsonData) {
+        if (oModel.jsonData[key].current == true) {
           oModel = oModel.jsonData[key]
         }
       }
-      
+
       this.getView().setModel(oModel, "decoration");
-      
+
     },
 
     onNavToManageReservations: function () {
@@ -37,6 +37,14 @@ sap.ui.define([
 
     onNavToManageTables: function () {
       this.getRouter().navTo("manageTables");
+    },
+
+    onNavToManageAllocation: function () {
+      this.getRouter().navTo("manageAllocation");
+    },
+
+    onNavToManageRestaurants: function(){
+      this.getRouter().navTo("manageRestaurants");
     },
 
     getRouter: function () {

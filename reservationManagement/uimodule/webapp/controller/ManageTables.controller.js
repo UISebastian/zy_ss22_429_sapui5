@@ -30,6 +30,11 @@ sap.ui.define([
             oRouter.navTo("manageAllocation");
         },
 
+        onNavToManageRestaurants: function () {
+            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            oRouter.navTo("manageRestaurants");
+        },
+
         onInit: function () {
             var sPath = $.sap.getModulePath("reservationManagement.reservationManagement", "/model/applicationProperties.json");
             var that = this;
@@ -90,11 +95,24 @@ sap.ui.define([
                                                 Booked: "0"
                                             }
                                             oModel.create("/ZYSS22_429_TABLESet", oNewTable, {
-                                                success: function (oData, oResponse) {
+                                                success: async function (oData, oResponse) {
                                                     sap.m.MessageToast.show("Table successfully created!");
                                                     oModel.refresh();
                                                     that.onClear();
                                                     sap.ui.getCore().byId("Popup").destroy();
+                                                    var numOfTables = newTableId + 1;
+                                                    console.log(numOfTables);
+                                                    var oUpdatedRestaurant = {
+                                                        NumOfTables: JSON.stringify(numOfTables)
+                                                    };
+                                                    await oModel.update("/ZYSS22_429_RESTTSet(0l)", oUpdatedRestaurant, {
+                                                        success: function (oSuccess) {
+
+                                                        },
+                                                        error: function (oError) {
+
+                                                        }
+                                                    });
                                                 },
                                                 error: function (oError) {
                                                     sap.m.MessageToast.show("Error during table creation!");
@@ -176,11 +194,32 @@ sap.ui.define([
 
                     oModel.remove(dPath, {
                         method: "DELETE",
-                        success: function (oData, oResponse) {
+                        success: async function (oData, oResponse) {
                             sap.m.MessageToast.show("Successfully deleted!");
                             oModel.refresh();
                             that.onClear();
                             sap.ui.getCore().byId("deletePopup").destroy();
+                            await oModel.get("/ZYSS22_429_RESTTSet(0l)?$select=NumOfTables", {
+                                success: async function (oData) {
+                                    var numOfTables = oData.results;
+                                    console.log(numOfTables);
+                                    var newNumOfTables = numOfTables - 1;
+                                    var oUpdatedRestaurant = {
+                                        NumOfTables: JSON.stringify(newNumOfTables)
+                                    }
+                                    await oModel.update("/ZYSS22_429_RESTTSet(0l)", oUpdatedRestaurant, {
+                                        success: function () {
+
+                                        },
+                                        error: function () {
+
+                                        }
+                                    });
+                                },
+                                error: function (oError) {
+
+                                }
+                            });
                         },
                         error: function (oError) {
                             sap.m.MessageToast.show("Error during table deletion");

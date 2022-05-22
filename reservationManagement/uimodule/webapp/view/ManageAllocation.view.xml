@@ -5,12 +5,13 @@
 	xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
 	xmlns:smartTable="sap.ui.comp.smarttable"
 	xmlns:suite="sap.suite.ui.commons" controllerName="reservationManagement.reservationManagement.controller.ManageReservations">
-	<f:ShellBar title="Table allocation" showNavButton="true" navButtonPressed="onNavButtonPressed" secondTitle="Show table allocation" homeIcon="./resources/sap/ui/documentation/sdk/images/logo_ui5.png">
+	<f:ShellBar title="Table allocation" showNavButton="true" navButtonPressed="onNavButtonPressed" secondTitle="Who, what and when" homeIcon="./resources/sap/ui/documentation/sdk/images/logo_ui5.png">
 		<f:menu>
 			<Menu>
 				<MenuItem text="Restaurant Management Dashboard" icon="sap-icon://bbyd-dashboard" press="onNavButtonPressed"/>
-				<MenuItem text="Manage Reservations" icon="sap-icon://switch-classes" press="onNavToManageReservations" />
 				<MenuItem text="Manage Tables" icon="sap-icon://provision" press="onNavToManageTables" />
+				<MenuItem text="Table Allocation" icon="sap-icon://puzzle" press="onNavToManageAllocation" />
+                <MenuItem text="Manage Restaurants" icon="sap-icon://world" press="onNavToManageRestaurant" />
 			</Menu>
 		</f:menu>
 		<f:profile>

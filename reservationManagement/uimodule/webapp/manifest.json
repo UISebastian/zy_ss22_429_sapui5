@@ -90,7 +90,15 @@
 					"pattern": "manageTables",
 					"name": "manageTables",
 					"target": "manageTables"
-				}
+				}, {
+          "pattern": "manageAllocation",
+          "name": "manageAllocation",
+          "target": "manageAllocation"
+        }, {
+          "pattern": "manageRestaurants",
+          "name": "manageRestaurants",
+          "target": "manageRestaurants"
+        }
 				
       ],
       "targets": {
@@ -107,6 +115,16 @@
 				"manageTables": {
 					"viewName": "ManageTables",
           "viewId": "ManageTables",
+					"viewLevel": 1
+				}, 
+        "manageAllocation": {
+					"viewName": "ManageAllocation",
+          "viewId": "ManageAllocation",
+					"viewLevel": 1
+				},
+        "manageRestaurants": {
+					"viewName": "ManageRestaurants",
+          "viewId": "ManageRestaurants",
 					"viewLevel": 1
 				}
       }

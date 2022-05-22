@@ -23,7 +23,7 @@ sap.ui.define(
                 // set the device model
                 this.setModel(models.createDeviceModel(), "device");
             },
-            createContent: function() {
+            createContent: function () {
                 // create root view
                 return sap.ui.view("AppView", {
                     viewName: "reservationManagement.reservationManagement.view.App",

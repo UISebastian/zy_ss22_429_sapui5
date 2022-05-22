@@ -2,12 +2,13 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:f="sap.f"
 	controllerName="reservationManagement.reservationManagement.controller.ManageTables">
-	<f:ShellBar title="Manage Tables" showNavButton="true" navButtonPressed="onNavButtonPressed" secondTitle="Create, Display, Change and Delete" homeIcon="./resources/sap/ui/documentation/sdk/images/logo_ui5.png">
+	<f:ShellBar title="Manage Tables" showNavButton="true" navButtonPressed="onNavButtonPressed" secondTitle="Managing tables is so much fun" homeIcon="./resources/sap/ui/documentation/sdk/images/logo_ui5.png">
 		<f:menu>
 			<Menu>
 				<MenuItem text="Restaurant Management Dashboard" icon="sap-icon://bbyd-dashboard" press="onNavButtonPressed"/>
-				<MenuItem text="Manage Reservations" icon="sap-icon://switch-classes" press="onNavToManageReservations" />
+				<MenuItem text="Manage Tables" icon="sap-icon://provision" press="onNavToManageTables" />
 				<MenuItem text="Table Allocation" icon="sap-icon://puzzle" press="onNavToManageAllocation" />
+                <MenuItem text="Manage Restaurants" icon="sap-icon://world" press="onNavToManageRestaurant" />
 			</Menu>
 		</f:menu>
 		<f:profile>

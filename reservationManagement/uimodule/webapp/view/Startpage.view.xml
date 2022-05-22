@@ -3,12 +3,13 @@
 	xmlns="sap.m"
 	xmlns:f="sap.f"
 	xmlns:layout="sap.ui.layout">
-	<f:ShellBar title="Reservation Management Dashboard" secondTitle="Individual Assignment" homeIcon="sap-icon://bbyd-dashboard">
+	<f:ShellBar title="Reservation Management Dashboard" secondTitle="429" homeIcon="sap-icon://bbyd-dashboard">
 		<f:menu>
 			<Menu>
-				<MenuItem text="Manage Reservations" icon="sap-icon://switch-classes" press="onNavToManageReservations" />
-				<MenuItem text="Manage Tables" icon="sap-icon://provision" press="onNavToManageTables"/>
+				<MenuItem text="Restaurant Management Dashboard" icon="sap-icon://bbyd-dashboard" press="onNavButtonPressed"/>
+				<MenuItem text="Manage Tables" icon="sap-icon://provision" press="onNavToManageTables" />
 				<MenuItem text="Table Allocation" icon="sap-icon://puzzle" press="onNavToManageAllocation" />
+                <MenuItem text="Manage Restaurants" icon="sap-icon://world" press="onNavToManageRestaurant" />
 			</Menu>
 		</f:menu>
 		<f:profile>
@@ -18,7 +19,7 @@
 	<layout:VerticalLayout id="vLID" class="sapUiResponsiveMargin">
 		<Title id="titleID" titleStyle="H2" text="Reservation Management" class="sapUiTinyMarginBegin" />
 		<layout:HorizontalLayout allowWrapping="true">
-			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Manage Reservations" subheader="Create, Display, Change and Delete" press="onNavToManageReservations">
+			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Manage Reservations" subheader="Manage your reservations and stay ahead!" press="onNavToManageReservations">
 				<tileContent>
 					<TileContent>
 						<content>
@@ -27,7 +28,7 @@
 					</TileContent>
 				</tileContent>
 			</GenericTile>
-			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Manage Tables" subheader="Create, Display, Change and Delete" press="onNavToManageTables">
+			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Manage Tables" subheader="Managing tables is so much fun" press="onNavToManageTables">
 				<tileContent>
 					<TileContent>
 						<content>
@@ -36,11 +37,20 @@
 					</TileContent>
 				</tileContent>
 			</GenericTile>
-			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Table Allocation" subheader="Show table allocation" press="onNavToManageAllocation">
+			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Table Allocation" subheader="Who, what and when" press="onNavToManageAllocation">
 				<tileContent>
 					<TileContent>
 						<content>
 							<ImageContent src="sap-icon://puzzle" />
+						</content>
+					</TileContent>
+				</tileContent>
+			</GenericTile>
+			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Manage Restaurants" subheader="Multiple restaurants?! - Manage em all!" press="onNavToManageRestaurants">
+				<tileContent>
+					<TileContent>
+						<content>
+							<ImageContent src="sap-icon://world" />
 						</content>
 					</TileContent>
 				</tileContent>

@@ -20,6 +20,16 @@ sap.ui.define([
       oRouter.navTo("manageTables");
     },
 
+    onNavToManageAllocation: function () {
+      var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+      oRouter.navTo("manageAllocation");
+    },
+
+    onNavToManageRestaurants: function () {
+      var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+      oRouter.navTo("manageRestaurants");
+    },
+
     onInit: function () {
       var sPath = $.sap.getModulePath("reservationManagement.reservationManagement", "/model/applicationProperties.json");
       var that = this;
@@ -203,7 +213,7 @@ sap.ui.define([
           }
         },
         error: function (oError) {
-          sap.m.MessageToas.show(oError.body);
+          sap.m.MessageToast.show(oError);
         }
       });
       var today = new Date();
@@ -359,7 +369,6 @@ sap.ui.define([
             method: "DELETE",
             success: function () {
               sap.m.MessageToast.show("Successfully deleted!");
-              //TODO: Update Depending Table
               oModel.refresh();
               that.onClear()
               sap.ui.getCore().byId("deleteResPopup").destroy();

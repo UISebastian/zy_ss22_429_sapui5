@@ -1,0 +1,61 @@
+<mvc:View xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:f="sap.f"
+	xmlns:form="sap.ui.layout.form"
+	xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	xmlns:smartTable="sap.ui.comp.smarttable"
+	xmlns:suite="sap.suite.ui.commons" controllerName="reservationManagement.reservationManagement.controller.ManageRestaurants">
+	<f:ShellBar title="Manage Restaurants" showNavButton="true" navButtonPressed="onNavButtonPressed" secondTitle="Multiple restaurants?! - Manage em all!" >
+		<f:menu>
+			<Menu>
+				<MenuItem text="Restaurant Management Dashboard" icon="sap-icon://bbyd-dashboard" press="onNavButtonPressed"/>
+				<MenuItem text="Manage Tables" icon="sap-icon://provision" press="onNavToManageTables" />
+				<MenuItem text="Table Allocation" icon="sap-icon://puzzle" press="onNavToManageAllocation" />
+                <MenuItem text="Manage Restaurants" icon="sap-icon://world" press="onNavToManageRestaurant" />
+			</Menu>
+		</f:menu>
+		<f:profile>
+			<f:Avatar src="sap-icon://account"/>
+		</f:profile>
+	</f:ShellBar>
+	<Page id="pageID" title="Current Restaurants">
+		<VBox >
+		<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button text="Create new restaurant" type="Accept" press="onCreateRestaurant" icon="sap-icon://add" />
+				<Button text="Update selected restaurant" press="updatePopup" icon="sap-icon://edit"/>
+				<Button text="Delete selected restaurant" type="Reject" press="deleteRestPopup" icon="sap-icon://delete"/>
+			</OverflowToolbar>
+			<Table id="tableRestaurantId" items="{/ZYSS22_429_RESTTSet}" growing="true" growingThreshold="13" growingScrollToLoad="true" mode="SingleSelectLeft">
+				<columns>
+					<Column >
+						<Text text="Restaurant ID" />
+					</Column>
+					<Column >
+						<Text text="Name" />
+					</Column>
+					<Column >
+						<Text text="Opening Time" />
+					</Column>
+					<Column >
+						<Text text="Closing Time" />
+					</Column>
+					<Column>
+						<Text text="Tables" />
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem >
+						<cells>
+							<Text text="{Id}" />
+							<Text text="{Title}" />
+							<Text text="{path: 'OpeningTime', type: 'sap.ui.model.odata.type.Time'}"/>
+							<Text text="{path: 'ClosingTime', type: 'sap.ui.model.odata.type.Time'}" />
+                            <Text text="{NumOfTables}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</VBox>
+	</Page>
+</mvc:View>
