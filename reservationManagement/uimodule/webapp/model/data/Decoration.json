@@ -1,0 +1,45 @@
+{
+	"Decoration": 
+		{
+			"winter":{
+				"content": "NEW WINTER DECORATION",
+				"subheader": "Just the right setting for the coziest time of the year!",
+				"season_start": "2021-12-21",
+				"season_end":"2022-03-20",
+				"image": "/images/hot cocoa.svg",
+				"state": null ,
+				"current": false
+			},
+			"spring": {
+				"content": "NEW SPRING DECORATION",
+				"subheader": "Everything's in bloom - so are we!",
+				"season_start": "2022-03-21",
+				"season_end":"2022-06-20",
+				"image": "/images/HelloSpring.svg",
+				"state": null,
+				"current": true
+
+			},
+			"summer":{
+				"content": "NEW SUMMER DECORATION",
+				"subheader": "Summer vibes - nothing more - nothing less!",
+				"season_start": "2022-06-21",
+				"season_end":"2022-09-20",
+				"image": "/images/SweetestSummer.svg",
+				"state": null, 
+				"current":false
+			},	
+			"fall":{
+				"content": "NEW FALL DECORATION",
+				"subheader": "Whether it is golden or gray - we have it!",
+				"season_start": "2022-09-21",
+				"season_end":"2022-12-20",
+				"image": "/images/fall in love.svg",
+				"state": null,
+				"current":false
+			}		
+
+
+		}
+	
+}

@@ -1,0 +1,115 @@
+{
+  "_version": "1.21.0",
+  "sap.app": {
+    "id": "reservationManagement.reservationManagement",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}"
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": false,
+    "rootView": {
+      "viewName": "reservationManagement.reservationManagement.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "idAppControl"
+    },
+    "dependencies": {
+      "minUI5Version": "1.60.0",
+      "libs": {
+        "sap.ui.core": {},
+        "sap.m": {},
+        "sap.ui.layout": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "reservationManagement.reservationManagement.i18n.i18n"
+        }
+      }
+      
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "viewPath": "reservationManagement.reservationManagement.view",
+        "controlId": "idAppControl",
+        "controlAggregation": "pages",
+        "transition": "slide",
+				"bypassed": {
+					"target": [
+						"launchpad"
+					]
+				},
+        "async": true
+      },
+      "routes": [
+        {
+					"pattern": "",
+					"name": "home",
+					"target": "startpage"
+				}, {
+					"pattern": "manageReservations",
+					"name": "manageReservations",
+					"target": "manageReservations"
+				}, {
+					"pattern": "manageTables",
+					"name": "manageTables",
+					"target": "manageTables"
+				}
+				
+      ],
+      "targets": {
+        "startpage": {
+					"viewName": "Startpage",
+          "viewId": "idAppControl",
+					"viewLevel": 0
+				},
+				"manageReservations": {
+					"viewName": "ManageReservations",
+          "viewId": "ManageReservations",
+					"viewLevel": 1
+				},
+				"manageTables": {
+					"viewName": "ManageTables",
+          "viewId": "ManageTables",
+					"viewLevel": 1
+				}
+      }
+    }
+  }
+}

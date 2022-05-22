@@ -1,0 +1,65 @@
+<mvc:View controllerName="reservationManagement.reservationManagement.controller.Startpage"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:f="sap.f"
+	xmlns:layout="sap.ui.layout">
+	<f:ShellBar title="Reservation Management Dashboard" secondTitle="Individual Assignment" homeIcon="sap-icon://bbyd-dashboard">
+		<f:menu>
+			<Menu>
+				<MenuItem text="Manage Reservations" icon="sap-icon://switch-classes" press="onNavToManageReservations" />
+				<MenuItem text="Manage Tables" icon="sap-icon://provision" press="onNavToManageTables"/>
+				<MenuItem text="Table Allocation" icon="sap-icon://puzzle" press="onNavToManageAllocation" />
+			</Menu>
+		</f:menu>
+		<f:profile>
+			<f:Avatar src="sap-icon://account"/>
+		</f:profile>
+	</f:ShellBar>
+	<layout:VerticalLayout id="vLID" class="sapUiResponsiveMargin">
+		<Title id="titleID" titleStyle="H2" text="Reservation Management" class="sapUiTinyMarginBegin" />
+		<layout:HorizontalLayout allowWrapping="true">
+			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Manage Reservations" subheader="Create, Display, Change and Delete" press="onNavToManageReservations">
+				<tileContent>
+					<TileContent>
+						<content>
+							<ImageContent src="sap-icon://switch-classes" />
+						</content>
+					</TileContent>
+				</tileContent>
+			</GenericTile>
+			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Manage Tables" subheader="Create, Display, Change and Delete" press="onNavToManageTables">
+				<tileContent>
+					<TileContent>
+						<content>
+							<ImageContent src="sap-icon://provision" />
+						</content>
+					</TileContent>
+				</tileContent>
+			</GenericTile>
+			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Table Allocation" subheader="Show table allocation" press="onNavToManageAllocation">
+				<tileContent>
+					<TileContent>
+						<content>
+							<ImageContent src="sap-icon://puzzle" />
+						</content>
+					</TileContent>
+				</tileContent>
+			</GenericTile>
+			<SlideTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" tiles="{decoration>/Decoration}">
+				<GenericTile backgroundImage="{decoration>image}" state="{decoration>state}" frameType="TwoByOne">
+					<tileContent>
+						<TileContent footer="{
+									path: 'decoration>season_start',
+									formatter: '.formatJSONDate'
+								}">
+							<content>
+								<NewsContent contentText="{decoration>content}" subheader="{decoration>subheader}">
+								</NewsContent>
+							</content>
+						</TileContent>
+					</tileContent>
+				</GenericTile>
+			</SlideTile>
+		</layout:HorizontalLayout>
+	</layout:VerticalLayout>
+</mvc:View>

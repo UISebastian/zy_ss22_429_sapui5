@@ -1,0 +1,55 @@
+specVersion: "2.2"
+metadata:
+  name: reservationManagement_uimodule
+type: application
+resources:
+  configuration:
+    paths:
+      webapp: uimodule/webapp
+framework:
+  name: SAPUI5
+  version: 1.84.0
+  libraries:
+    - name: sap.ui.core
+    - name: sap.m
+    - name: sap.ui.layout
+    - name: themelib_sap_fiori_3
+server:
+  customMiddleware:
+    - name: ui5-middleware-livereload
+      afterMiddleware: compression
+      configuration:
+        port: 35729
+        path: uimodule/webapp
+    - name: ui5-middleware-route-proxy
+      afterMiddleware: compression
+      configuration:
+        debug: false
+        /sap/opu/odata/sap/:
+          target: http://s06lp1.ucc.in.tum.de:8000/
+          auth:
+            fromEnv: false
+            user: "DEV-429"
+            password: "25035237"
+            client: 300
+builder:
+  customTasks:
+    - name: ui5-task-nwabap-deployer
+      afterTask: generateVersionInfo
+      configuration:
+        resources:
+          path: dist/uimodule
+          pattern: "**/*.*"
+        connection:
+          server: http://s06lp1.ucc.in.tum.de:8000/
+          client: 300
+        authentication:
+          user: "DEV-429"
+          password: "25035237"
+        ui5:
+          language: EN
+          package: ZY_SS2_429_
+          bspContainer: ZY_SS22_429_RM
+          bspContainerText: Reservation Manager
+          transportNo: S06K907879
+          calculateApplicationIndex: true

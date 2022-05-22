@@ -1,0 +1,63 @@
+<mvc:View xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:f="sap.f"
+	xmlns:form="sap.ui.layout.form"
+	xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	xmlns:smartTable="sap.ui.comp.smarttable"
+	xmlns:suite="sap.suite.ui.commons" controllerName="reservationManagement.reservationManagement.controller.ManageReservations">
+	<f:ShellBar title="Table allocation" showNavButton="true" navButtonPressed="onNavButtonPressed" secondTitle="Show table allocation" homeIcon="./resources/sap/ui/documentation/sdk/images/logo_ui5.png">
+		<f:menu>
+			<Menu>
+				<MenuItem text="Restaurant Management Dashboard" icon="sap-icon://bbyd-dashboard" press="onNavButtonPressed"/>
+				<MenuItem text="Manage Reservations" icon="sap-icon://switch-classes" press="onNavToManageReservations" />
+				<MenuItem text="Manage Tables" icon="sap-icon://provision" press="onNavToManageTables" />
+			</Menu>
+		</f:menu>
+		<f:profile>
+			<f:Avatar src="sap-icon://account"/>
+		</f:profile>
+	</f:ShellBar>
+	<Page id="pageID" title="Current table allocation">
+		<VBox >
+			<Table id="tableReservationId" items="{
+			path:'/ZYSS22_429_RESERSet',
+			sorter: {
+				path: 'TableId'}
+			}" >
+				<columns>
+					<Column mergeDuplicates="true" >
+						<Text text="Table ID" />
+					</Column>
+					<Column >
+						<Text text="Reservation ID" />
+					</Column>
+					<Column >
+						<Text text="Reservation Date" />
+					</Column>
+					<Column >
+						<Text text="Start Time" />
+					</Column>
+					<Column>
+						<Text text="End Time" />
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem >
+						<cells>
+							<Text text="{TableId}" />
+							<Text text="{Id}" />
+							<Text text="{ 
+								path: 'ResDate',
+								type: 'sap.ui.model.type.Date',
+								formatOptions: { 
+									style: 'medium' }  
+								}"/>
+							<Text text="{path: 'ResTime', type: 'sap.ui.model.odata.type.Time'}"/>
+							<Text text="{path: 'ResDuration', type: 'sap.ui.model.odata.type.Time'}" />
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</VBox>
+	</Page>
+</mvc:View>

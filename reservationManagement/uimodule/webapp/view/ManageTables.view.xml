@@ -1,0 +1,53 @@
+<mvc:View xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:f="sap.f"
+	controllerName="reservationManagement.reservationManagement.controller.ManageTables">
+	<f:ShellBar title="Manage Tables" showNavButton="true" navButtonPressed="onNavButtonPressed" secondTitle="Create, Display, Change and Delete" homeIcon="./resources/sap/ui/documentation/sdk/images/logo_ui5.png">
+		<f:menu>
+			<Menu>
+				<MenuItem text="Restaurant Management Dashboard" icon="sap-icon://bbyd-dashboard" press="onNavButtonPressed"/>
+				<MenuItem text="Manage Reservations" icon="sap-icon://switch-classes" press="onNavToManageReservations" />
+				<MenuItem text="Table Allocation" icon="sap-icon://puzzle" press="onNavToManageAllocation" />
+			</Menu>
+		</f:menu>
+		<f:profile>
+			<f:Avatar src="sap-icon://account"/>
+		</f:profile>
+	</f:ShellBar>
+	<Page id="pageID" title="Current Tables">
+		<content>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button text="Create new table" type="Accept" press="createTable" icon="sap-icon://add" />
+				<Button text="Update selected table" press="updatePopup" icon="sap-icon://edit"/>
+				<Button text="Delete selected table" type="Reject" press="deletePopup" icon="sap-icon://delete"/>
+			</OverflowToolbar>
+			<Table id="tableTablesId" items="{/ZYSS22_429_TABLESet}" growing="true" growingThreshold="7" growingScrollToLoad="true" mode="SingleSelectLeft">
+				<columns>
+					<Column >
+						<Text text="Table ID" />
+					</Column>
+					<Column >
+						<Text text="Number of seats" />
+					</Column>
+					<Column >
+						<Text text="Location" />
+					</Column>
+					<Column >
+						<Text text="Decoration" />
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem >
+						<cells>
+							<Text text="{TableId}" />
+							<Text text="{NumOfSeats}" />
+							<Text text="{Location}" />
+							<Text text="{Decoration}" />
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+	</Page>
+</mvc:View>
